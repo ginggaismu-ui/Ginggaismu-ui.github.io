@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Perhitungan Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input, button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .hasil {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Kalkulator Sederhana</h2>
+
+    <input type="number" id="angka1" placeholder="Masukkan angka pertama">
+    <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+
+    <button onclick="tambah()">Tambah (+)</button>
+    <button onclick="kurang()">Kurang (-)</button>
+    <button onclick="kali()">Kali (×)</button>
+    <button onclick="bagi()">Bagi (÷)</button>
+
+    <div class="hasil" id="hasil">Hasil: </div>
+</div>
+
+<script>
+    function tambah() {
+        let a = Number(document.getElementById("angka1").value);
+        let b = Number(document.getElementById("angka2").value);
+        document.getElementById("hasil").innerHTML = "Hasil: " + (a + b);
+    }
+
+    function kurang() {
+        let a = Number(document.getElementById("angka1").value);
+        let b = Number(document.getElementById("angka2").value);
+        document.getElementById("hasil").innerHTML = "Hasil: " + (a - b);
+    }
+
+    function kali() {
+        let a = Number(document.getElementById("angka1").value);
+        let b = Number(document.getElementById("angka2").value);
+        document.getElementById("hasil").innerHTML = "Hasil: " + (a * b);
+    }
+
+    function bagi() {
+        let a = Number(document.getElementById("angka1").value);
+        let b = Number(document.getElementById("angka2").value);
+        document.getElementById("hasil").innerHTML = "Hasil: " + (a / b);
+    }
+</script>
+
+</body>
+</html>
