@@ -2,31 +2,32 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Perhitungan Sederhana</title>
+    <title>Kalkulator Sederhana</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #eef2f7;
         }
         .container {
-            width: 300px;
+            width: 320px;
             margin: 100px auto;
             padding: 20px;
-            background-color: white;
+            background: white;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
         }
         input, button {
             width: 100%;
+            padding: 10px;
             margin-top: 10px;
-            padding: 8px;
             font-size: 16px;
         }
-        h2 {
-            text-align: center;
+        button {
+            cursor: pointer;
         }
-        .hasil {
-            margin-top: 10px;
+        #hasil {
+            margin-top: 15px;
             font-weight: bold;
         }
     </style>
@@ -36,41 +37,30 @@
 <div class="container">
     <h2>Kalkulator Sederhana</h2>
 
-    <input type="number" id="angka1" placeholder="Masukkan angka pertama">
-    <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+    <input type="number" id="angka1" placeholder="Angka pertama">
+    <input type="number" id="angka2" placeholder="Angka kedua">
 
-    <button onclick="tambah()">Tambah (+)</button>
-    <button onclick="kurang()">Kurang (-)</button>
-    <button onclick="kali()">Kali (×)</button>
-    <button onclick="bagi()">Bagi (÷)</button>
+    <button onclick="hitung('+')">Tambah</button>
+    <button onclick="hitung('-')">Kurang</button>
+    <button onclick="hitung('*')">Kali</button>
+    <button onclick="hitung('/')">Bagi</button>
 
-    <div class="hasil" id="hasil">Hasil: </div>
+    <div id="hasil">Hasil: -</div>
 </div>
 
 <script>
-    function tambah() {
-        let a = Number(document.getElementById("angka1").value);
-        let b = Number(document.getElementById("angka2").value);
-        document.getElementById("hasil").innerHTML = "Hasil: " + (a + b);
-    }
+function hitung(operator) {
+    let a = parseFloat(document.getElementById("angka1").value);
+    let b = parseFloat(document.getElementById("angka2").value);
+    let hasil;
 
-    function kurang() {
-        let a = Number(document.getElementById("angka1").value);
-        let b = Number(document.getElementById("angka2").value);
-        document.getElementById("hasil").innerHTML = "Hasil: " + (a - b);
-    }
+    if (operator === '+') hasil = a + b;
+    if (operator === '-') hasil = a - b;
+    if (operator === '*') hasil = a * b;
+    if (operator === '/') hasil = b !== 0 ? a / b : "Tidak bisa dibagi 0";
 
-    function kali() {
-        let a = Number(document.getElementById("angka1").value);
-        let b = Number(document.getElementById("angka2").value);
-        document.getElementById("hasil").innerHTML = "Hasil: " + (a * b);
-    }
-
-    function bagi() {
-        let a = Number(document.getElementById("angka1").value);
-        let b = Number(document.getElementById("angka2").value);
-        document.getElementById("hasil").innerHTML = "Hasil: " + (a / b);
-    }
+    document.getElementById("hasil").innerHTML = "Hasil: " + hasil;
+}
 </script>
 
 </body>
