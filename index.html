@@ -1,6 +1,67 @@
-<html>
-  <head></head>
-  <body>
-    aku ingin kau ada di sini menemniku di kala ku bersedih setiap perkataan mu ku slalu mendengarkan.
-  </body>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f7;
+        }
+        .container {
+            width: 320px;
+            margin: 100px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+        }
+        #hasil {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Kalkulator Sederhana</h2>
+
+    <input type="number" id="angka1" placeholder="Angka pertama">
+    <input type="number" id="angka2" placeholder="Angka kedua">
+
+    <button onclick="hitung('+')">Tambah</button>
+    <button onclick="hitung('-')">Kurang</button>
+    <button onclick="hitung('*')">Kali</button>
+    <button onclick="hitung('/')">Bagi</button>
+
+    <div id="hasil">Hasil: -</div>
+</div>
+
+<script>
+function hitung(operator) {
+    let a = parseFloat(document.getElementById("angka1").value);
+    let b = parseFloat(document.getElementById("angka2").value);
+    let hasil;
+
+    if (operator === '+') hasil = a + b;
+    if (operator === '-') hasil = a - b;
+    if (operator === '*') hasil = a * b;
+    if (operator === '/') hasil = b !== 0 ? a / b : "Tidak bisa dibagi 0";
+
+    document.getElementById("hasil").innerHTML = "Hasil: " + hasil;
+}
+</script>
+
+</body>
 </html>
